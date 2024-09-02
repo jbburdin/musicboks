@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MUSIC BOKS - Rythme</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>MUSIC BOKS</h1>
+    </header>
+    <main id="rythmepage">
+        <h2 id="rythmeName">Lecteur</h2>
+        <div>
+            <label for="bpm">BPM: </label>
+            <input type="range" id="bpm" min="60" max="200" value="120" oninput="updateBPM(this.value)">
+            <span id="bpmValue">120</span>
+        </div>
+        <button id="playPauseButton" onclick="togglePlayPause()">Play</button>
+        <button onclick="goBackToStyles()">Retour aux styles</button>
+        <div id="otherRhythms"></div>
+    </main>
+    <script src="scripts.js"></script>
+</body>
+</html>
