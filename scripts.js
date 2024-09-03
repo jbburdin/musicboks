@@ -3,9 +3,10 @@ let currentBPM = 120;
 let loopTimeout = null;
 
 const rhythms = {
-rock: ['Loop/Rock/rockBackBeat_110.mp3', 'Loop/Rock/rockBrit_100.mp3', 'Loop/Rock/rockCrash_110.mp3', 'Loop/Rock/rockRetro_110.mp3', 'Loop/Rock/rockSimple_110.mp3'],
-blues: ['Loop/Blues/BluesBackBasics_110.mp3', 'Loop/Blues/BluesBoulder_110.mp3', 'Loop/Blues/BluesMotown_110.mp3', 'Loop/Blues/BluesSlow_110.mp3', 'Loop/Blues/BluesStepside_110.mp3'],
-latin: ['Loop/Latin/LatinBeach_110.mp3', 'Loop/Latin/LatinBoardWalk_110.mp3', 'Loop/Latin/LatinCoast_110.mp3', 'Loop/Latin/LatinMiami_110.mp3', 'Loop/Latin/LatinStilts_110.mp3', 'Loop/Latin/LatinStormy_110.mp3']
+rock: ['Loop/Rock/rockBackBeat_110.mp3', 'Loop/Rock/rockBrit_110.mp3', 'Loop/Rock/rockCrash_110.mp3', 'Loop/Rock/rockRetro_110.mp3', 'Loop/Rock/rockSimple_110.mp3'],
+blues: ['Loop/Blues/BluesBackBasics_110.mp3', 'Loop/Blues/BluesBoulder_110.mp3', 'Loop/Blues/BluesMotown_110.mp3', 'Loop/Blues/BluesSlow_110.mp3', 'Loop/Blues/BluesStepside_110.mp3', 'Loop/Blues/BluesSwing_120.mp3'],
+latin: ['Loop/Latin/LatinBeach_110.mp3', 'Loop/Latin/LatinBoardWalk_110.mp3', 'Loop/Latin/LatinCoast_110.mp3', 'Loop/Latin/LatinMiami_110.mp3', 'Loop/Latin/LatinStilts_110.mp3', 'Loop/Latin/LatinStormy_110.mp3'],
+creole: ['Loop/Creole/CreoleBiguine_120.mp3', 'Loop/Creole/Creolekompa_86.mp3', 'Loop/Creole/CreoleMazurka_110.mp3', 'Loop/Creole/CreoleReggae_100.mp3', 'Loop/Creole/CreoleZouk_120.mp3']
 };
 
 function selectStyle(style) {
