@@ -14,17 +14,23 @@ function selectStyle(style) {
     window.location.href = 'style-page.html';
 }
 
+
 function loadRhythms() {
     const style = localStorage.getItem('selectedStyle');
+    const styleTitle = document.getElementById('styleTitle');
+    styleTitle.textContent = `Choisissez votre rythme ${style.charAt(0).toUpperCase() + style.slice(1)}`;
+
     const rhythmsDiv = document.getElementById('rhythms');
     rhythms[style].forEach(rythme => {
         const button = document.createElement('button');
-        button.textContent = rythme.split('/').pop();
+        button.textContent = getTextContent(rythme);
         button.onclick = () => selectRythme(rythme, style);
         rhythmsDiv.appendChild(button);
     });
 }
-
+function getTextContent(myarray){
+   return  myarray.split('/').pop().replace('.mp3', '').replace('rock', '').replace('_110', '').replace('_120', '').replace('Blues', '').replace('Latin', '').replace('Creole', '').replace('_100', '').replace('_86', '');
+} 
 function selectRythme(rythme, style) {
     if (currentAudio) {
         currentAudio.pause();
@@ -45,13 +51,13 @@ function loadRythmePlayer() {
         currentAudio.loop = false; // Désactiver la boucle automatique
         document.getElementById('bpm').value = currentBPM;
         document.getElementById('bpmValue').textContent = currentBPM;
-        document.getElementById('rythmeName').textContent = rythme.split('/').pop();
+        document.getElementById('rythmeName').textContent = getTextContent(rythme);
         
         const otherRhythmsDiv = document.getElementById('otherRhythms');
         otherRhythmsDiv.innerHTML = ''; // Clear previous buttons if any
         rhythms[style].forEach(otherRythme => {
             const button = document.createElement('button');
-            button.textContent = otherRythme.split('/').pop();
+            button.textContent = getTextContent(otherRythme);
             button.onclick = () => selectRythme(otherRythme, style);
             otherRhythmsDiv.appendChild(button);
         });
@@ -94,6 +100,10 @@ function goBackToIndex() {
 
 function goBackToStyles() {
     window.location.href = 'style-page.html';
+}
+
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
 // Charger les rythmes ou le lecteur de rythme en fonction de la page
