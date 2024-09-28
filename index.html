@@ -5,17 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MUSIC BOKS</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
-        <h1>MUSIC BOKS</h1>
+        <img src="assets/logoMusicboks.svg" alt="Music Boks Logo" class="logo">
     </header>
+    
     <main id="homepage">
         <h2>Choisissez un style</h2>
-        <button onclick="selectStyle('rock')">Rock</button>
-        <button onclick="selectStyle('blues')">Blues</button>
-        <button onclick="selectStyle('latin')">Latin</button>
-        <button onclick="selectStyle('creole')">Creole</button>
+
+        <div id="styles-container">
+            <button class="style-button" style="background-color: #5fcddb; color: #ffffff; padding: 0.2rem 0.1rem;" onclick="selectStyle('rock')">ROCK</button>
+            <span class="rhythm-count">5 rythmes</span>
+            <button class="style-button" style="background-color: #5fcddb; color: #ffffff; padding: 0.2rem 0.1rem;" onclick="selectStyle('blues')">BLUES</button>
+            <span class="rhythm-count">6 rythmes</span>
+            <button class="style-button" style="background-color: #5fcddb; color: #ffffff; padding: 0.2rem 0.1rem;" onclick="selectStyle('latin')">LATIN</button>
+            <span class="rhythm-count">6 rythmes</span>
+            <button class="style-button" style="background-color: #5fcddb; color: #ffffff; padding: 0.2rem 0.1rem;" onclick="selectStyle('creole')">CREOLE</button>
+            <span class="rhythm-count">5 rythmes</span>
+        </div>
+
     </main>
     <script src="scripts.js"></script>
 </body>

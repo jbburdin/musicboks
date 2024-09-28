@@ -5,21 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MUSIC BOKS - Rythme</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
-        <h1>MUSIC BOKS</h1>
+        <img src="assets/logoMusicboks.svg" alt="Music Boks Logo" class="logo">
     </header>
     <main id="rythmepage">
         <h2 id="rythmeName">Lecteur</h2>
-        <div>
-            <label for="bpm">BPM: </label>
-            <input type="range" id="bpm" min="60" max="200" value="120" oninput="updateBPM(this.value)">
-            <span id="bpmValue">120</span>
+        <div class="center-container">
+            <button id="playPauseButton" class="round-button" onclick="togglePlayPause()">
+                <img id="playPauseIcon" src="assets/play.svg" alt="Play">
+            </button>
+            <div class="bpm-control">
+                <label for="bpm">VITESSE</label>
+                <input type="range" id="bpm" min="100" max="180" step="1" oninput="updateBPM(this.value)">
+                <span id="bpmValue">120</span>
+            </div>
         </div>
-        <button id="playPauseButton" onclick="togglePlayPause()">Play</button>
-        <button onclick="goBackToIndex()">Tous les styles</button>
         <div id="otherRhythms"></div>
+        <button class="styled-button" onclick="goBackToIndex()">RETOUR AUX STYLES</button>
     </main>
     <script src="scripts.js"></script>
 </body>

@@ -31,6 +31,8 @@ function loadRhythms() {
 function getTextContent(myarray){
    return  myarray.split('/').pop().replace('.mp3', '').replace('rock', '').replace('_110', '').replace('_120', '').replace('Blues', '').replace('Latin', '').replace('Creole', '').replace('_100', '').replace('_86', '');
 } 
+
+
 function selectRythme(rythme, style) {
     if (currentAudio) {
         currentAudio.pause();
@@ -40,7 +42,20 @@ function selectRythme(rythme, style) {
     currentAudio.loop = false; // Désactiver la boucle automatique
     localStorage.setItem('selectedRythme', rythme);
     localStorage.setItem('selectedStyle', style);
+    currentAudio.play(); // Jouer immédiatement le morceau
+    updateActiveButton(rythme); // Mettre à jour le bouton actif
     window.location.href = 'rythme-page.html';
+}
+
+function updateActiveButton(rythme) {
+    const buttons = document.querySelectorAll('#otherRhythms button');
+    buttons.forEach(button => {
+        if (button.dataset.rythme === rythme) {
+            button.classList.add('active');
+        } else {
+            button.classList.remove('active');
+        }
+    });
 }
 
 function loadRythmePlayer() {
@@ -58,9 +73,14 @@ function loadRythmePlayer() {
         rhythms[style].forEach(otherRythme => {
             const button = document.createElement('button');
             button.textContent = getTextContent(otherRythme);
+            button.dataset.rythme = otherRythme; // Stocker le rythme dans un attribut de données
             button.onclick = () => selectRythme(otherRythme, style);
             otherRhythmsDiv.appendChild(button);
         });
+
+        currentAudio.play(); // Jouer immédiatement le morceau
+        document.getElementById('playPauseIcon').src = 'assets/pause.svg'; // Mettre à jour l'icône
+        updateActiveButton(rythme); // Mettre à jour le bouton actif
     }
 }
 
@@ -74,13 +94,14 @@ function updateBPM(bpm) {
 
 function togglePlayPause() {
     if (currentAudio) {
+        const playPauseIcon = document.getElementById('playPauseIcon');
         if (currentAudio.paused) {
-            playLoop();
-            document.getElementById('playPauseButton').textContent = 'Pause';
+            currentAudio.play();
+            playPauseIcon.src = 'assets/pause.svg'; // Mettre l'icône de pause
         } else {
             currentAudio.pause();
             clearTimeout(loopTimeout);
-            document.getElementById('playPauseButton').textContent = 'Play';
+            playPauseIcon.src = 'assets/play.svg'; // Mettre l'icône de lecture
         }
     }
 }
@@ -112,3 +133,25 @@ if (document.getElementById('rhythms')) {
 } else if (document.getElementById('bpm')) {
     window.onload = loadRythmePlayer;
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    const stylesContainer = document.querySelector('.styles-container');
+    
+    const styles = Object.keys(rhythms);
+    styles.forEach(style => {
+        const styleButton = document.createElement('div');
+        styleButton.classList.add('style-buttonHP');
+        
+        const button = document.createElement('button');
+        button.textContent = capitalizeFirstLetter(style);
+        button.onclick = () => selectStyle(style);
+        styleButton.appendChild(button);
+        
+        const rhythmCount = document.createElement('span');
+        rhythmCount.classList.add('rhythm-count');
+        rhythmCount.textContent = `${rhythms[style].length} rythmes`;
+        styleButton.appendChild(rhythmCount);
+        
+        stylesContainer.appendChild(styleButton);
+    });
+});

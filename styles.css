@@ -1,14 +1,32 @@
 body {
-  font-family: Arial, sans-serif;
+  font-family: "Anton", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  line-height: -2em;
   margin: 0;
   padding: 0;
   text-align: center;
+  text-transform: uppercase;
+  background-color: #5fcddb;
+}
+
+.anton-regular {
+  font-family: "Anton", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 header {
-  background-color: #4e023b;
-  color: rgb(208, 237, 236);
-  padding: 1rem;
+  background-color: #000000;
+  color: rgb(123, 232, 228);
+  padding: 2rem;
+  display: flex;
+  align-items: center; /* Centrer verticalement les éléments dans le header */
+}
+
+.logo {
+  height: 40px; /* Ajustez la taille du logo selon vos besoins */
+  margin-right: auto; /* Pousse le logo vers la gauche */
 }
 
 main {
@@ -16,9 +34,35 @@ main {
 }
 
 button {
+  font-family: "Anton", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: #000000;
+  background-color: rgb(255, 255, 255);
+  border: none; /* Supprimer la bordure par défaut */
+  border-radius: 10px;
   margin: 0.5rem;
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
+  padding: 2rem 2rem;
+  font-size: 1.5rem;
+}
+
+.styled-button {
+  font-family: "Anton", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: #ffffff; /* Couleur du texte en blanc */
+  background-color: #000000; /* Fond noir */
+  border: none; /* Supprimer la bordure par défaut */
+  border-radius: 50px; /* Bords arrondis */
+  margin: 2rem;
+  padding: 1rem 2rem; /* Ajustez la taille du padding si nécessaire */
+  font-size: 0.8rem; /* Ajustez la taille de la police si nécessaire */
+  letter-spacing: 0.1em;
+  cursor: pointer; /* Changer le curseur pour indiquer que c'est un bouton cliquable */
+}
+
+.styled-button:hover {
+  background-color: #333333; /* Optionnel : couleur de fond légèrement différente au survol */
 }
 
 input[type="range"] {
@@ -27,9 +71,9 @@ input[type="range"] {
 }
 
 #rythmeName {
-  font-size: 1.5rem;
+  font-size: 6rem;
   margin-top: 1rem;
-  color: #333;
+  color: #000000;
 }
 
 #otherRhythms {
@@ -37,7 +81,131 @@ input[type="range"] {
 }
 
 #otherRhythms button {
-  margin: 0.2rem;
-  padding: 0.3rem 0.6rem;
-  font-size: 0.9rem;
+  font-family: "Anton", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  margin: 0.5rem;
+  padding: 1rem 2rem; /* Augmenter la taille du padding pour agrandir les boutons */
+  font-size: 1.2rem; /* Augmenter la taille de la police */
+  background-color: #ffffff; /* Fond blanc par défaut */
+  border: 1px solid #e3f0f2; /* Ajouter une bordure */
+  border-radius: 5px; /* Bords légèrement arrondis */
+  cursor: pointer; /* Changer le curseur pour indiquer que c'est un bouton cliquable */
+}
+
+#otherRhythms button.active {
+  background-color: #5fcddb; /* Fond gris pour le bouton actif */
+}
+
+.round-button {
+  width: 150px; /* Ajustez la taille selon vos besoins */
+  height: 150px; /* Ajustez la taille selon vos besoins */
+  border-radius: 50%; /* Pour rendre le bouton rond */
+  border: none; /* Supprimer la bordure */
+  background-color: #000000; /* Couleur de fond noir */
+  display: flex; /* Utilisez flexbox pour centrer l'icône */
+  align-items: center; /* Centrer verticalement */
+  justify-content: center; /* Centrer horizontalement */
+  cursor: pointer; /* Changer le curseur pour indiquer que c'est un bouton cliquable */
+}
+
+.round-button img {
+  width: 100px; /* Ajustez la taille de l'icône selon vos besoins */
+  height: 100px; /* Ajustez la taille de l'icône selon vos besoins */
+}
+
+.center-container {
+  display: flex;
+  flex-direction: column; /* Aligne les éléments verticalement */
+  justify-content: center;
+  align-items: center;
+  height: 30vh; /* S'assurer que le conteneur prend toute la hauteur de la fenêtre */
+}
+
+.bpm-control {
+  margin-top: 1rem; /* Ajouter un espace entre le bouton et la barre de réglage */
+}
+
+input[type="range"] {
+  -webkit-appearance: none; /* Supprimer le style par défaut de WebKit */
+  width: 100%;
+  max-width: 200px;
+  height: 30px; /* Hauteur de la barre */
+  background: #ffffff; /* Couleur de la barre */
+  border-radius: 30px; /* Bords arrondis pour la barre */
+  outline: none; /* Supprimer l'effet de focus par défaut */
+  opacity: 1; /* Transparence */
+  transition: opacity .2s; /* Transition pour la transparence */
+}
+
+input[type="range"]:hover {
+  opacity: 1; /* Opacité complète au survol */
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Supprimer le style par défaut de WebKit */
+  appearance: none;
+  width: 30px; /* Largeur du curseur */
+  height: 30px; /* Hauteur du curseur */
+  background: #5fcddb; /* Couleur du curseur */
+  border-radius: 50%; /* Curseur rond */
+  cursor: pointer; /* Curseur de la souris */
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 30px; /* Largeur du curseur */
+  height: 30px; /* Hauteur du curseur */
+  background: #5fcddb; /* Couleur du curseur */
+  border-radius: 50%; /* Curseur rond */
+  cursor: pointer; /* Curseur de la souris */
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 30px; /* Hauteur de la barre */
+  background: #000000; /* Couleur de la barre */
+  border-radius: 30px; /* Bords arrondis pour la barre */
+}
+
+input[type="range"]::-moz-range-track {
+  width: 100%;
+  height: 30px; /* Hauteur de la barre */
+  background: #000000; /* Couleur de la barre */
+  border-radius: 30px; /* Bords arrondis pour la barre */
+}
+
+
+/* Styles spécifiques pour la grille de la page d'accueil */
+
+.styles-container {
+  display: flex;
+  max-width: 500px;
+  justify-content: center;
+  justify-items: center; /* Centrer les éléments horizontalement */
+  align-items: center; /* Centrer les éléments verticalement */
+  padding: 20rem; /*sous le titre */
+  height: 200vh;
+}
+
+.style-button button {
+  font-size: 0px;
+  padding: 1rem 2rem !important; /* Ajuster la taille du padding pour les boutons */
+  background-color: #007BFF !important; /* Ajouter une couleur de fond pour le bouton */
+  border: none !important; /* Supprimer les bordures */
+  cursor: pointer; /* Ajouter un curseur pointeur pour l'effet de clic */
+}
+
+.rhythm-count {
+  display: block;
+  font-size: 1.4rem; /* Taille de police plus petite pour le nombre de rythmes */
+  font-variant-caps: all-petite-caps;
+  color: #000000; /* Couleur grise pour le texte */
+}
+
+.style-button {
+  text-align: center;
+  width:330px ;
+  height: 150px;
+  font-size: 8rem;
+  color: #000000
 }
